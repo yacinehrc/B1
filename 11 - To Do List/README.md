@@ -5,6 +5,8 @@
 ---
 f8ze4f9ze1fzf18zf
 ---
+Ce projet a eu comme objectif de nous faire découvrir l'utilité d’un serveur local (en l'occurrence, XAMPP), comment le PHP fonctionne et communiqué avec la base de données (codée en SQL) et utiliser la notion de CRUD (Create, Read, Update, Delete).
+---
 
 ## EXPLICATIONS
 
