@@ -6,12 +6,12 @@ L'objectif principal était d'appréhender l'architecture d'un serveur local (XA
 
 ---
 
-## 🌐 Démo en ligne
+## Démo en ligne
 L'application est hébergée et accessible à l'adresse suivante : [https://www.yharrache.free.nf/ProjetPHP/](https://www.yharrache.free.nf/ProjetPHP/)
 
 ---
 
-## 🚀 Fonctionnalités et Parcours Utilisateur
+## Fonctionnalités et Parcours Utilisateur
 
 L'interface principale se compose de trois sections majeures : la liste des tâches en cours, la liste des tâches terminées, et un accès au formulaire de création.
 
@@ -53,7 +53,7 @@ L'application intègre également un sélecteur de thème permettant de basculer
 
 ---
 
-## 🛠️ Technologies utilisées
+## Technologies utilisées
 - **Backend :** PHP
 - **Base de données :** MySQL (MariaDB)
 - **Environnement de développement :** XAMPP
@@ -61,14 +61,14 @@ L'application intègre également un sélecteur de thème permettant de basculer
 
 ---
 
-## 🔮 Perspectives d'évolution
+## Perspectives d'évolution
 - **Système de corbeille :** Mettre en place une suppression logique (*soft delete*) afin de permettre la récupération d'une tâche supprimée par erreur.
 - **Catégorisation et priorisation :** Ajouter un système d'étiquettes de couleur pour classifier les tâches par matière ou par niveau d'importance.
 - **Fonctionnalités collaboratives :** Développer une gestion d'utilisateurs permettant le partage et la gestion de tâches à plusieurs.
 
 ---
 
-## 🎓 Compétences acquises
+## Compétences acquises
 Le développement de cette application a permis de consolider des compétences techniques essentielles du parcours informatique (BTS SIO) :
 - Administration et utilisation d'un environnement de développement local.
 - Programmation logique et dynamique avec le langage PHP.
