@@ -1,0 +1,749 @@
+/* --- MEDIA QUERY pour les petits écrans (Tablettes et Mobiles) --- */
+@media (max-width: 900px) {
+
+    /* 1. Ajustement du padding du corps */
+    body {
+        /* Moins d'espace sur les bords */
+        padding: ;
+    }
+
+    /* 2. Transformation de la grille en une seule colonne */
+    .layout {
+        grid-template-columns: 1fr;
+        /* Une seule colonne */
+        grid-template-areas:
+            "header"
+            "photo"
+            "infos"
+            "recherche"
+            "formation"
+            "competences"
+            "soft"
+            "passions";
+
+
+    }
+
+    /* 3. Ajustement de la Sidebar (pour garantir qu'elle est toujours accessible à gauche) */
+    #sidebar {
+        /* On ne change rien ici, la sidebar reste fixée à gauche et accessible au survol, 
+           ce qui fonctionne bien même sur mobile (souvent au tap) */
+        left: -175px;
+        transition: transform .4s ease-out;
+        /* Assure la fluidité */
+    }
+
+    /* Pour éviter que le contenu principal soit caché par la sidebar ouverte sur mobile, 
+       on peut forcer un petit padding à gauche sur le body, mais pour l'instant, 
+       laisser le survol gérer l'ouverture est la solution la plus simple. */
+    /* FIX FINAL : Assure que les mots se cassent et reviennent à la ligne DANS TOUTES LES BOÎTES */
+
+    /* Ciblage des listes et de leurs éléments */
+    .box ul,
+    .box li,
+    .box p {
+        /* Propriété standard pour casser les mots longs */
+        word-wrap: break-word;
+
+        /* Propriété moderne pour casser les mots longs (similaire) */
+        overflow-wrap: break-word;
+
+        /* Assure qu'aucun espace blanc n'est forcé sur une seule ligne */
+        white-space: normal !important;
+    }
+
+    /* Ciblage des titres de section et des éléments en gras à l'intérieur des listes */
+    .box h3,
+    .box h4,
+    .box li strong {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        /* Assure qu'ils ne se comportent pas comme un bloc forçant l'alignement */
+        display: block;
+        white-space: normal;
+    }
+}
+
+/* ========================================================= */
+/* --- 1. VARIABLES ET THÈMES --- */
+/* ========================================================= */
+:root {
+    /* BLANC - Couleur chill (par défaut) */
+    --bg: #ffffff;
+    --text: #333;
+    --accent: #e4e4e4;
+}
+
+/* THÈMES (Surcharge des variables selon l'attribut data-theme) */
+[data-theme="noir"] {
+    --bg: #0f0f0f;
+    --text: white;
+    --accent: #292929;
+}
+
+[data-theme="rouge"] {
+    --bg: #ff0000;
+    --text: white;
+    --accent: #9b0000;
+}
+
+[data-theme="bleu"] {
+    --bg: #8ca9ff;
+    --text: white;
+    --accent: #2a1aff;
+}
+
+[data-theme="vert"] {
+    --bg: #398b32;
+    --text: white;
+    --accent: #006823;
+}
+
+[data-theme="violet"] {
+    --bg: #9f39ff;
+    --text: white;
+    --accent: #6f00d6;
+}
+
+[data-theme="blanc"] {
+    --bg: #ffffff;
+    --text: #333;
+    --accent: #eeeeee;
+}
+
+/* ========================================================= */
+/* --- 2. STYLES GÉNÉRAUX ET BODY --- */
+/* ========================================================= */
+body {
+    margin: 0;
+    /* Retire la marge par défaut pour un contrôle total de l'espacement */
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background .4s, color .4s;
+    /* ASSURE L'ESPACE SUR LES BORDS DE LA PAGE (horizontal et vertical) */
+    padding-left: 3%;
+    padding-right: 1%;
+    padding-top: 20px;
+    /* Espace 20px au-dessus du header */
+    padding-bottom: 10%;
+    /* Espace 20px en dessous des dernières boîtes */
+}
+
+/* --- EN-TÊTE --- */
+.header-box {
+    grid-area: header;
+    text-align: center;
+    padding: 20px;
+}
+
+.header-box h1,
+.header-box h2 {
+    margin: 0;
+
+}
+
+/* ========================================================= */
+/* --- 3. BARRE LATÉRALE (SIDEBAR) --- */
+/* ========================================================= */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -175px;
+    width: 180px;
+    height: 100%;
+    background: var(--accent);
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    transition: left .3s ease-out;
+    z-index: 100;
+    gap: 15px;
+}
+
+#sidebar:hover {
+    left: 0;
+}
+
+.theme-controls {
+    display: flex;
+    /* FIX : Les pastilles sont alignées verticalement (une sous l'autre) */
+    flex-direction: column;
+    /* Centrer les pastilles dans la sidebar */
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.theme-option {
+    /* Styles de la pastille */
+    display: block;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    background: var(--accent);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    transition: all 0.2s;
+
+    font-size: 0;
+}
+
+.theme-option:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Style de sélection */
+.theme-option.active {
+    border: 3px solid var(--bg);
+    box-shadow: 0 0 0 1px var(--text);
+    transform: none;
+}
+
+.theme-option input[type="radio"] {
+    display: none;
+}
+
+/* Afficher le thème sélectionné (effet "allumé") */
+.theme-option.active {
+    background: var(--self-color);
+    border: 1px solid var(--self-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.theme-option.noir.active {
+    color: white;
+}
+
+/* Style de la Radio Box */
+.theme-option input[type="radio"] {
+    appearance: none;
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    position: relative;
+    top: 2px;
+}
+
+/* Style du cercle radio coché */
+.theme-option.active input[type="radio"]:checked {
+    background-color: var(--self-color);
+    border-color: #333;
+}
+
+/* Point central */
+.theme-option input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: var(--text);
+    border-radius: 50%;
+}
+
+.theme-option.active input[type="radio"]:checked::after {
+    background: var(--accent);
+}
+
+/* --- Liens Sociaux et Contact --- */
+.social-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-link {
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    color: var(--bg);
+    font-size: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-link i {
+    font-size: 32px;
+    transition: color 0.2s;
+}
+
+.social-link:hover {
+    transform: scale(1.1);
+}
+
+.email-info {
+    color: var(--bg);
+    font-size: 14px;
+    text-align: center;
+    padding: 5px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+}
+
+.contact-link {
+    background: var(--bg);
+    color: var(--accent);
+    padding: 10px 12px;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 90%;
+}
+
+.contact-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+#mail {
+    color: var(--bg);
+}
+
+/* ========================================================= */
+/* --- 4. MISE EN PAGE PRINCIPALE (GRID) --- */
+/* ========================================================= */
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "header header header"
+        "photo infos recherche"
+        "formation competences soft"
+        "formation passions passions";
+
+    /* Espacement vertical (20px) et horizontal (1% pour l'exemple) */
+    gap: 6% 0.5%;
+    /* Retire les marges sur le layout car le padding du body gère l'espace extérieur */
+    margin: 0;
+    padding: 0;
+}
+
+/* Styles pour les zones qui doivent s'étendre */
+.formation {
+    grid-area: formation;
+    background: var(--accent);
+    color: var(--text);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(255, 1, 1, 0.1);
+    transition: .3s ease-in-out;
+    height: 100%;
+    font-size: 16px;
+   
+}
+
+
+/* ... (Code CSS précédent) ... */
+
+/* MISE À JOUR : Styles spécifiques pour TOUTES les icônes sociales */
+.social-link i {
+    /* FIX COULEUR : Force l'icône à prendre la couleur définie dans .social-link (var(--bg)) */
+    color: var(--bg) !important;
+
+    /* FIX TAILLE : Assure que toutes les icônes sont à 40px */
+    font-size: 40px !important;
+
+    transition: color 0.2s;
+}
+
+/* ... (Reste du code CSS inchangé) ... */
+.passions {
+    grid-area: passions;
+}
+
+/* ========================================================= */
+/* --- 5. STYLES COMMUNS DES CASES (BOX) --- */
+/* ========================================================= */
+.box {
+    background: var(--accent);
+    color: var(--text);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: .3s ease-in-out;
+    height: 100%;
+}
+
+.box p,
+.box ul {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.box h3 {
+    border-bottom: 2px solid var(--text);
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* Animation au survol (effet de "flottement") */
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ... (Les autres styles sont inchangés) ... */
+
+/* Styles communs aux sections */
+.box {
+    background: var(--accent);
+    color: var(--text);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: .3s ease-in-out;
+    height: 100%;
+}
+
+/* MODIFICATION : Retrait de display: flex car il n'est plus nécessaire. */
+.photo {
+    grid-area: photo;
+    text-align: center;
+    padding: 20px;
+
+}
+
+
+
+
+.photo img {
+    width: 50%;
+    height: auto;
+    border-radius: 2em;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+/* ... (Fin du fichier CSS inchangé) ... */
+
+/* ========================================================= */
+/* --- 6. MEDIA QUERY (Responsive Design) --- */
+/* ========================================================= */
+@media (max-width: 900px) {
+    body {
+        /* Réduit le padding sur mobile */
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .layout {
+        /* Une seule colonne, empilement des éléments */
+        margin-left: 2em;
+        gap: 2%;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "photo"
+            "infos"
+            "recherche"
+            "formation"
+            "competences"
+            "soft"
+            "passions";
+    }
+
+    /* Ajouter plus d'espace entre informations personnelles et langues parlées */
+    .infos {
+        margin-bottom: 30px;
+    }
+}
+
+/* ========================================================= */
+/* --- 1. VARIABLES ET THÈMES --- */
+/* ========================================================= */
+:root {
+    /* BLANC - Couleur chill (par défaut) */
+    --bg: #ffffff;
+    /* Fond très clair */
+    --text: #333;
+    /* Texte foncé */
+    --accent: #e4e4e4;
+    /* Couleur d'accent douce */
+}
+
+/* THÈMES (Surcharge des variables selon l'attribut data-theme) */
+[data-theme="noir"] {
+    --bg: #0f0f0f;
+    --text: white;
+    --accent: #292929;
+}
+
+[data-theme="rouge"] {
+    --bg: #ff0000;
+    --text: white;
+    --accent: #9b0000;
+}
+
+[data-theme="bleu"] {
+    --bg: #2848ff;
+    --text: white;
+    --accent: #0b00a0;
+}
+
+[data-theme="vert"] {
+    --bg: #398b32;
+    --text: white;
+    --accent: #006823;
+}
+
+[data-theme="violet"] {
+    --bg: #9f39ff;
+    --text: white;
+    --accent: #6f00d6;
+}
+
+[data-theme="blanc"] {
+    --bg: #ffffff;
+    --text: #333;
+    --accent: #eeeeee;
+}
+
+/* ... (Reste de la section 2. STYLES GÉNÉRAUX ET BODY inchangé) ... */
+
+/* ========================================================= */
+/* --- 3. BARRE LATÉRALE (SIDEBAR) --- */
+/* ========================================================= */
+#sidebar {
+    /* ... Styles de la sidebar inchangés ... */
+}
+
+#sidebar:hover {
+    left: 0;
+}
+
+.theme-controls {
+    /* ... Styles de theme-controls inchangés ... */
+}
+
+.theme-option {
+    /* Styles de la pastille communs */
+    display: block;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    /* Retire la couleur d'accent dynamique */
+    background: initial;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    transition: all 0.2s;
+
+    font-size: 0;
+}
+
+.theme-option:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ------------------------------------------------------------- */
+/* >>> COULEURS STATIQUES DES PASTILLES (Répond à la demande) <<< */
+/* ------------------------------------------------------------- */
+
+.theme-option.blanc {
+    /* Utilise la couleur de fond du thème blanc */
+    background-color: #ffffff;
+    border-color: #333;
+}
+
+.theme-option.noir {
+    /* Utilise la couleur de fond du thème noir */
+    background-color: #0f0f0f;
+    border-color: white;
+}
+
+.theme-option.rouge {
+    /* Utilise la couleur de fond du thème rouge */
+    background-color: #ff0000;
+    border-color: white;
+}
+
+.theme-option.bleu {
+    /* Utilise la couleur de fond du thème bleu */
+    background-color: #2848ff;
+    border-color: white;
+}
+
+.theme-option.vert {
+    /* Utilise la couleur de fond du thème vert */
+    background-color: #398b32;
+    border-color: white;
+}
+
+.theme-option.violet {
+    /* Utilise la couleur de fond du thème violet */
+    background-color: #9f39ff;
+    border-color: white;
+}
+
+/* Style de sélection (l'état "actif" est bien visible) */
+.theme-option.active {
+    /* Utilise la couleur du texte du thème actif comme bordure pour l'indication */
+    border: 3px solid var(--text);
+    /* Ajoute une fine bordure autour en couleur de fond (bg) pour l'effet de profondeur */
+    box-shadow: 0 0 0 1px var(--bg);
+    transform: none;
+}
+
+/* ... (Reste du code style.css inchangé) ... */
+
+/* style.css - Section 3. BARRE LATÉRALE (SIDEBAR) */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -175px;
+    width: 180px;
+    height: 100%;
+    background: var(--accent);
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    transition: left .3s ease-out;
+    /* CHANGEMENT CLÉ : Assurez-vous que la sidebar est au-dessus de tout */
+    z-index: 9999;
+    gap: 15px;
+}
+
+#sidebar:hover {
+    left: 0;
+}
+
+/* ========================================================= */
+/* --- 1. VARIABLES ET THÈMES --- */
+/* ========================================================= */
+:root {
+    /* BLANC - Couleur chill (par défaut) */
+    --bg: #ffffff;
+    --text: #333;
+    --accent: #e4e4e4;
+}
+
+/* THÈMES (Surcharge des variables) */
+[data-theme="noir"] {
+    --bg: #0f0f0f;
+    --text: white;
+    --accent: #161616;
+    /* FIX: Les icônes de la sidebar doivent être BLANCHES sur fond noir/gris foncé */
+    --sidebar-icon-color: white;
+}
+
+[data-theme="blanc"] {
+    --bg: #ffffff;
+    --text: #333;
+    --accent: #eeeeee;
+    /* FIX: Les icônes de la sidebar doivent être NOIRES sur fond blanc/gris clair */
+    --sidebar-icon-color: #333;
+}
+
+/* Les autres thèmes restent inchangés et peuvent utiliser 'white' ou 'var(--text)' pour le contraste */
+[data-theme="rouge"] {
+    --bg: #b91515;
+    --text: white;
+    --accent: #970808;
+    --sidebar-icon-color: white;
+}
+
+[data-theme="bleu"] {
+    --bg: #526cff;
+    --text: white;
+    --accent: #3c3fff;
+    --sidebar-icon-color: white;
+}
+
+[data-theme="vert"] {
+    --bg: #00990d;
+    --text: white;
+    --accent: #008a0b;
+    --sidebar-icon-color: white;
+}
+
+[data-theme="violet"] {
+    --bg: #9f39ff;
+    --text: white;
+    --accent: #6f00d6;
+    --sidebar-icon-color: white;
+}
+
+/* --- Liens Sociaux et Contact --- */
+.social-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-link {
+    /* ... autres styles ... */
+    transition: transform 0.2s;
+
+    /* Utiliser la variable spécifique ou la couleur par défaut pour les liens */
+    color: var(--sidebar-icon-color, white);
+    font-size: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-link i {
+    /* FIX ICÔNES : Force la couleur de l'icône à utiliser la variable spécifique */
+    color: var(--sidebar-icon-color, white) !important;
+    font-size: 32px !important;
+    transition: color 0.2s;
+}
+
+.email-info {
+    /* Le texte de l'email doit aussi suivre la couleur */
+    color: var(--sidebar-icon-color, white);
+    font-size: 14px;
+    text-align: center;
+    padding: 5px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+}
+
+.contact-link {
+    /* Le bouton "Mon CV" inverse les couleurs pour rester lisible */
+    background: var(--sidebar-icon-color, white);
+    /* Couleur de fond = couleur icône */
+    color: var(--accent);
+    /* Couleur du texte = couleur accent (sidebar) */
+    padding: 10px 12px;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 90%;
+}
+
+/* ... le reste de la section sidebar et du fichier CSS reste inchangé ... */

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Répertoire - Connexion</title>
+    <link rel="stylesheet" href="style.css?v=9">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="landing-container">
+        <!-- Header avec toggle dark mode -->
+        <header class="landing-header">
+            <div class="logo">
+                <i class="fa-solid fa-address-book"></i>
+                <h1>Répertoire</h1>
+            </div>
+            <button id="theme-toggle" class="icon-btn" title="Changer de thème">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </header>
+
+        <!-- Main content -->
+        <main class="landing-main">
+            <div class="hero-section">
+                <!-- Left: Hero content -->
+                <div class="hero-content">
+                    <h1>
+                        Gérez vos <span class="highlight">contacts</span><br>
+                        en toute simplicité
+                    </h1>
+                    <p>
+                        Organisez vos contacts professionnels et personnels dans une interface moderne et intuitive.
+                        Importez, gérez et retrouvez vos contacts en un clin d'œil.
+                    </p>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fa-solid fa-lock"></i>
+                            <span>Sécurisé</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fa-solid fa-cloud"></i>
+                            <span>Cloud</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                            <span>Responsive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Auth card -->
+                <div class="auth-card-wrapper">
+                    <div class="auth-card">
+                        <div class="auth-header">
+                            <h2 class="auth-title" id="auth-title">Connexion</h2>
+                            <p class="auth-subtitle" id="auth-subtitle">Accédez à votre répertoire</p>
+                        </div>
+
+                        <!-- Login Form -->
+                        <form id="login-form" class="auth-form">
+                            <div class="form-group">
+                                <label for="login-username">Nom d'utilisateur</label>
+                                <div class="input-with-icon">
+                                    <i class="fa-solid fa-user"></i>
+                                    <input type="text" id="login-username" name="username" class="form-input"
+                                        placeholder="Votre nom d'utilisateur" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="login-password">Mot de passe</label>
+                                <div class="input-with-icon">
+                                    <i class="fa-solid fa-lock"></i>
+                                    <input type="password" id="login-password" name="password" class="form-input"
+                                        placeholder="Votre mot de passe" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="primary-btn full-width">
+                                <i class="fa-solid fa-right-to-bracket"></i> Se connecter
+                            </button>
+
+                            <div class="auth-footer">
+                                Pas encore de compte ? <a id="show-register">S'inscrire</a>
+                            </div>
+                        </form>
+
+                        <!-- Register Form -->
+                        <form id="register-form" class="auth-form hidden">
+                            <div class="form-group">
+                                <label for="register-username">Nom d'utilisateur</label>
+                                <div class="input-with-icon">
+                                    <i class="fa-solid fa-user"></i>
+                                    <input type="text" id="register-username" name="username" class="form-input"
+                                        placeholder="Choisissez un nom d'utilisateur" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="register-email">Adresse email</label>
+                                <div class="input-with-icon">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <input type="email" id="register-email" name="email" class="form-input"
+                                        placeholder="votre@email.com" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="register-password">Mot de passe</label>
+                                <div class="input-with-icon">
+                                    <i class="fa-solid fa-lock"></i>
+                                    <input type="password" id="register-password" name="password" class="form-input"
+                                        placeholder="Minimum 6 caractères" required minlength="6">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="register-password-confirm">Confirmer le mot de passe</label>
+                                <div class="input-with-icon">
+                                    <i class="fa-solid fa-lock"></i>
+                                    <input type="password" id="register-password-confirm" name="password_confirm"
+                                        class="form-input" placeholder="Répétez votre mot de passe" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="primary-btn full-width">
+                                <i class="fa-solid fa-user-plus"></i> Créer un compte
+                            </button>
+
+                            <div class="auth-footer">
+                                Déjà inscrit ? <a id="show-login">Se connecter</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="landing-footer">
+            <p>&copy; 2024 Répertoire. Tous droits réservés.</p>
+        </footer>
+    </div>
+
+    <script src="auth.js?v=9"></script>
+</body>
+
+</html>

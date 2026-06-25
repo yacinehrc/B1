@@ -1,0 +1,162 @@
+.contact-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-box {
+    background: var(--accent);
+    color: var(--text); /* Texte du formulaire en blanc/clair */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 20px;
+    
+    transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.contact-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contact-box label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Champs de saisie (texte, email, textarea) */
+.contact-box input[type="text"],
+.contact-box input[type="email"],
+.contact-box textarea {
+    padding: 12px;
+    border: 1px solid var(--text); /* Bordure en couleur du texte (blanc/clair) */
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text); /* Texte tapé en blanc/clair */
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s; 
+}
+
+/* Ombre au focus */
+.contact-box input:focus,
+.contact-box textarea:focus {
+    border-color: var(--text);
+    /* Ombre claire (pour tous les thèmes) */
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.7); 
+    transform: translateY(-2px); 
+}
+
+/* Ombre gris foncé pour le thème noir au focus (pour un meilleur contraste) */
+body[data-theme="noir"] .contact-box input:focus,
+body[data-theme="noir"] .contact-box textarea:focus {
+    box-shadow: 0 0 12px #999; 
+}
+
+/* --- Civilité et RGPD --- */
+/* (Inchangé) */
+
+/* --- Boutons (MIS À JOUR) --- */
+.back-btn {
+    /* ... (Inchangé) ... */
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    transition: background 0.3s, color 0.3s, transform 0.2s; 
+}
+.back-btn:hover {
+    background: var(--accent);
+    color: var(--bg); /* Couleur de fond (blanc/clair) */
+    transform: translateY(-2px); 
+}
+
+.send-btn {
+    /* ... (Inchangé) ... */
+    background: var(--bg);
+    color: var(--accent);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.send-btn:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+/* ... (Styles précédents inchangés) ... */
+
+/* --- Boutons (AMÉLIORÉS) --- */
+.back-btn {
+    align-self: flex-start;
+    padding: 10px 18px; /* Taille légèrement augmentée */
+    background: transparent;
+    border: 2px solid var(--accent); /* Bordure en couleur d'accent */
+    color: var(--accent);
+    border-radius: 20px; /* Bordures plus arrondies (pill shape) */
+    font-size: 15px; 
+    cursor: pointer;
+    margin-bottom: 25px; /* Marge augmentée */
+    transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+    font-weight: 600;
+}
+.back-btn:hover {
+    background: var(--accent);
+    color: var(--bg); /* Inversion des couleurs au survol (texte blanc/clair) */
+    transform: translateY(-3px); /* Animation de survol plus prononcée */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère au survol */
+}
+.back-btn i {
+    margin-right: 8px;
+}
+
+.send-btn {
+    margin-top: 30px;
+    padding: 16px 28px; /* Taille légèrement augmentée */
+    background: var(--bg); /* Fond en couleur de base (blanc/clair) */
+    color: var(--accent); /* Texte en couleur d'accent */
+    border: none;
+    border-radius: 8px;
+    font-size: 17px; /* Agrandissement de la police */
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Ombre par défaut */
+}
+
+.send-btn:hover {
+    background: var(--accent); /* Changement de couleur au survol */
+    color: var(--bg);
+    transform: translateY(-3px); /* Animation de survol plus prononcée */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Ombre plus marquée au survol */
+}
+
+.back-btn {
+    /* Style du bouton Retour pour qu'il soit très visible */
+    background: var(--bg);
+    color: var(--accent);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Espace entre la flèche et le texte */
+    
+    /* Transition et effet d'ombre pour le rendre dynamique */
+    transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px; /* Espace sous le bouton */
+}
+
+.back-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+

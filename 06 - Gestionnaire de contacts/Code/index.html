@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Répertoire Professionnel</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="app-header">
+        <div class="header-content">
+            <h1><i class="fa-solid fa-address-book"></i> Répertoire</h1>
+            <div class="header-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Changer de thème">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button id="import-btn" class="icon-btn" aria-label="Importer CSV">
+                    <i class="fa-solid fa-file-import"></i>
+                </button>
+                <input type="file" id="csv-input" accept=".csv" hidden>
+            </div>
+        </div>
+        <nav class="app-nav">
+            <button class="nav-tab active" data-tab="professional">Professionnel</button>
+            <button class="nav-tab" data-tab="personal">Personnel</button>
+        </nav>
+    </header>
+
+    <main class="app-main">
+        <div class="search-bar">
+            <i class="fa-solid fa-search"></i>
+            <input type="text" id="search-input" placeholder="Rechercher un contact...">
+        </div>
+
+        <div id="contacts-list" class="contacts-grid">
+            <!-- Contacts will be injected here -->
+        </div>
+    </main>
+
+    <button id="add-btn" class="fab" aria-label="Ajouter un contact">
+        <i class="fa-solid fa-plus"></i>
+    </button>
+
+    <!-- Modal Ajout Contact -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Nouveau Contact</h2>
+                <button id="close-modal" class="close-btn">&times;</button>
+            </div>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label>Type</label>
+                    <div class="type-selector">
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="professional" checked>
+                            <span>Professionnel</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="personal">
+                            <span>Personnel</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Nom complet *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <!-- Champs Professionnels -->
+                <div id="pro-fields" class="fields-group">
+                    <div class="form-group">
+                        <label for="company">Entreprise</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="job">Poste</label>
+                        <input type="text" id="job" name="job">
+                    </div>
+                    <div class="form-group">
+                        <label for="pro-phone">Téléphone Pro</label>
+                        <input type="tel" id="pro-phone" name="proPhone">
+                    </div>
+                    <div class="form-group">
+                        <label for="pro-email">Email Pro</label>
+                        <input type="email" id="pro-email" name="proEmail">
+                    </div>
+                </div>
+
+                <!-- Champs Personnels (Initialement cachés ou optionnels) -->
+                <div id="perso-fields" class="fields-group hidden">
+                    <div class="form-group">
+                        <label for="perso-phone">Téléphone Perso</label>
+                        <input type="tel" id="perso-phone" name="persoPhone">
+                    </div>
+                    <div class="form-group">
+                        <label for="perso-email">Email Perso</label>
+                        <input type="email" id="perso-email" name="persoEmail">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Adresse</label>
+                        <input type="text" id="address" name="address">
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" id="cancel-btn">Annuler</button>
+                    <button type="submit" class="btn-primary">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

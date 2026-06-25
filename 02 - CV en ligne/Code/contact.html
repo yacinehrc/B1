@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Yacine</title>
+
+    <link rel="stylesheet" href="style.css" /> 
+    <link rel="stylesheet" href="contact.css" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div id="sidebar">
+        <div class="theme-controls">
+            <label class="theme-option active blanc" data-color="#c9bca6" data-theme-value="blanc">
+                <input type="radio" name="theme" value="blanc" checked> Blanc
+            </label>
+            <label class="theme-option noir" data-color="#383838" data-theme-value="noir">
+                <input type="radio" name="theme" value="noir"> Noir
+            </label>
+            <label class="theme-option rouge" data-color="#e6a0aa" data-theme-value="rouge">
+                <input type="radio" name="theme" value="rouge"> Rouge
+            </label>
+            <label class="theme-option bleu" data-color="#a6c5e6" data-theme-value="bleu">
+                <input type="radio" name="theme" value="bleu"> Bleu
+            </label>
+            <label class="theme-option vert" data-color="#a6e6bc" data-theme-value="vert">
+                <input type="radio" name="theme" value="vert"> Vert
+            </label>
+            
+        </div>
+
+       <div class="social-contact">
+             
+            
+            <a href="https://github.com/yacinehrc/yacinehrc.github.io" target="_blank" class="social-link" aria-label="Lien vers GitHub">
+                <i class="fab fa-github"></i> 
+            </a>
+            <a href="https://www.linkedin.com/in/yacine-harrache-397a95387" target="_blank" class="social-link" aria-label="Lien vers LinkedIn">
+                 <i class="fab fa-linkedin-in"></i> 
+            </a> 
+            <a href="mailto:pro.h.yacine@proton.me?subject=Message%20pour%20Yacine%20Harrache&body=Bonjour%20Yacine%2C%0A%0AJe%20souhaite%20vous%20contacter%20concernant...%0A%0ACordialement%2C" 
+                class="social-link" 
+                aria-label="Envoyer un e-mail"> 
+                <i class="fas fa-envelope"></i> 
+            </a>
+            <div class="email-info">
+                
+            </div>
+            
+            <a href="index.html" class="contact-link">Mon CV</a>
+        </div>
+    </div>
+    <div class="contact-container layout">
+        
+        <div class="box" style="grid-column: 1 / -1; padding: 40px;">
+            <button onclick="window.history.back()" class="back-btn"><i class="fas fa-arrow-left"></i> Retour</button>
+            <h1>Contactez-moi</h1>
+
+            <form action="#" method="POST" class="contact-box">
+                
+                <label>Civilité *</label>
+                <div class="civility-group">
+                    <label class="civility-option"><input type="radio" name="civility" value="mr" required> M.</label>
+                    <label class="civility-option"><input type="radio" name="civility" value="mme"> Mme</label>
+                    <label class="civility-option"><input type="radio" name="civility" value="other"> Autre</label>
+                </div>
+
+                <label for="lastname">Nom *</label>
+                <input type="text" id="lastname" required>
+
+                <label for="firstname">Prénom *</label>
+                <input type="text" id="firstname" required>
+
+                <label for="company">Nom de l’entreprise</label>
+                <input type="text" id="company">
+
+                <label for="email">Adresse email *</label>
+                <input type="email" id="email" required>
+
+                <label for="message">Message *</label>
+                <textarea id="message" required></textarea>
+
+                <label class="rgpd">
+                    <input type="checkbox" required>
+                    J’accepte la politique de confidentialité (RGPD)
+                </label>
+
+                <button type="submit" class="send-btn">Envoyer votre message à Yacine</button>
+            </form>
+        </div>
+        
+    </div>
+
+    <script>
+        // 1. Fonction pour appliquer le thème
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+
+            // Mettre à jour la pastille active sur cette page aussi
+            document.querySelectorAll('.theme-option').forEach(opt => {
+                opt.classList.remove('active');
+                if (opt.querySelector('input').value === theme) {
+                    opt.classList.add('active');
+                }
+            });
+        }
+
+        // 2. Charger le thème depuis localStorage au chargement de la page
+        const savedTheme = localStorage.getItem('userTheme');
+        if (savedTheme) {
+            applyTheme(savedTheme);
+        } else {
+            // Appliquer le thème par défaut si rien n'est sauvegardé
+            applyTheme('blanc');
+        }
+
+        // 3. Écouter les clics pour pouvoir CHANGER et sauvegarder le thème depuis cette page
+        document.querySelectorAll('.theme-option').forEach(option => {
+            option.addEventListener('click', () => {
+                const theme = option.querySelector('input').value;
+                
+                // Appliquer et Sauvegarder
+                applyTheme(theme);
+                localStorage.setItem('userTheme', theme);
+            });
+        });
+    </script>
+</body>
+</html>
