@@ -1,0 +1,665 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* Intégration du style Y-Design dans Forty */
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Carte Projet */
+.project-card-v2 {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card-v2:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #6200ea; /* Ton violet accent */
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.project-category {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #6200ea;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+}
+
+.project-card-v2 h3 {
+    color: #ffffff !important;
+    font-size: 1.4rem !important;
+    margin: 0 0 1rem 0 !important;
+    letter-spacing: 0;
+}
+
+.project-card-v2 p {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Badges technos */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1.5rem 0;
+}
+
+.project-tags span {
+    background: rgba(98, 0, 234, 0.1);
+    color: #b388ff;
+    border: 1px solid rgba(98, 0, 234, 0.2);
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* Lien avec flèche */
+.project-link {
+    margin-top: auto;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.project-link i {
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover i {
+    transform: translateX(5px);
+}
+
+
+
+
+
+/* 1. Grille à 2 colonnes */
+.compact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 150px;
+    align-items: start;
+}
+
+/* 2. Effet Sticky à 80% du haut */
+.project-card {
+    position: -webkit-sticky;
+    position: sticky;
+    /* 20% du haut (donc s'arrête à 80% de la page en partant du bas) */
+    top: 15%; 
+    margin-bottom: 100px; /* Espace pour scroller entre les groupes */
+    cursor: help;
+    transition: transform 0.3s ease;
+}
+
+/* 3. Style des Box (Format agrandi) */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    border-radius: 40px;
+    overflow: hidden;
+    background: #1a1a1a;
+    /* Ombre portée pour l'effet d'empilement */
+    box-shadow: 0 -15px 35px rgba(0,0,0,0.6);
+}
+
+/* 4. Décalage léger pour voir les cartes précédentes (Optionnel) */
+/* Les cartes de la deuxième ligne s'arrêtent un peu plus bas */
+.project-card:nth-child(n+3) {
+    top: 18%;
+}
+.project-card:nth-child(n+5) {
+    top: 21%;
+}
+
+/* 5. Mobile : on repasse en 1 colonne pour la lisibilité */
+@media screen and (max-width: 768px) {
+    .compact-grid {
+        grid-template-columns: 1fr !important;
+        padding: 20px;
+    }
+    
+    .project-card {
+        top: 10%;
+        margin-bottom: 50px;
+    }
+
+    .card-inner {
+        height: 400px;
+    }
+}
+
+.card-inner {
+    /* ... tes autres propriétés ... */
+    border: none !important;            /* Supprime toute bordure */
+    outline: none !important;           /* Supprime tout contour */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important; /* Ombre plus douce */
+}
+
+/* Force la suppression sur les éléments qui pourraient générer ça */
+.project-card, .project-card *, .compact-grid {
+    text-decoration: none !important;
+    list-style: none !important;
+    border-bottom: none !important;
+}
+
+
+
+
+
+
+.stacking-container {
+    padding: 100px 20px 2% 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 1. Grille centrée (80% largeur) */
+.compact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 40%); 
+    gap: 40px;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 50px 0 50px 0;
+}
+
+/* 2. Empilement Sticky Progressif */
+.project-card {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10vh;
+    margin-bottom: 80px;
+    cursor: pointer;
+    transition: z-index 0.3s;
+}
+
+.project-card:nth-child(3), .project-card:nth-child(4) { top: calc(10vh + 50px); }
+.project-card:nth-child(5), .project-card:nth-child(6) { top: calc(10vh + 100px); }
+.project-card:nth-child(7), .project-card:nth-child(8) { top: calc(10vh + 150px); }
+
+/* 3. Box & Zoom "Vers nous" */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    border-radius: 40px;
+    overflow: hidden;
+    background: #1a1a1a;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.project-card:hover { z-index: 1000 !important; }
+
+.project-card:hover .card-inner {
+    transform: scale(1.05);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+/* 4. IMAGE FULL BOX + ZOOM INTERNE */
+.card-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 0;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.project-card:hover .card-bg {
+    transform: scale(1.1);
+}
+
+/* 5. BANDE BLANCHE EXTENSIBLE (Reste collée au bas) */
+.card-glass-panel {
+    position: absolute;
+    bottom: 0;         /* Fixée au bas */
+    left: 0;
+    width: 100%;
+    height: 35%;       /* Hauteur initiale */
+    background: rgba(255, 255, 255, 0.25); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center; /* Garde le texte centré verticalement */
+    /* Transition sur la hauteur pour l'effet d'étirement */
+    transition: height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 0.4s ease;
+}
+
+/* Étirement au survol */
+.project-card:hover .card-glass-panel {
+    height: 45%;      /* La bande s'étire vers le haut de 10% */
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.panel-content { 
+    padding: 0 40px; 
+    width: 100%;
+}
+
+/* 6. Textes */
+.card-title {
+    color: #3D3896 !important;
+    font-size: 1.7rem !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+}
+
+.card-title span {
+    color: #3D3896 !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Cache le bouton par défaut sur PC */
+#backToTop {
+    display: none;
+}
+
+
+
+/* --- MEDIA QUERY MOBILE : EMPILEMENT PAR-DESSUS --- */
+@media screen and (max-width: 1024px) {
+    .compact-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100% !important;
+        /* Très important : gros padding en bas pour laisser la 8ème monter */
+        padding: 60px 0 60px 0 !important; 
+        gap: 0;
+    }
+
+    .project-card {
+        /* On garde tes dimensions et marges actuelles */
+        width: calc(100vw - 80px) !important;
+        margin: 0 auto 120px auto !important;
+        position: -webkit-sticky;
+        position: sticky;
+    }
+
+    /* L'ASTUCE : 
+       Top fixe pour toutes les cartes (ou presque) 
+       + z-index CROISSANT pour que la dernière soit au-dessus.
+    */
+    .project-card:nth-child(1)  { top: 60px; z-index: 1; }
+    .project-card:nth-child(2)  { top: calc(60px + 20px); z-index: 2; }
+    .project-card:nth-child(3)  { top: calc(60px + 40px); z-index: 3; }
+    .project-card:nth-child(4)  { top: calc(60px + 60px); z-index: 4; }
+    .project-card:nth-child(5)  { top: calc(60px + 80px); z-index: 5; }
+    .project-card:nth-child(6)  { top: calc(60px + 100px); z-index: 6; }
+    .project-card:nth-child(7)  { top: calc(60px + 120px); z-index: 7; }
+    .project-card:nth-child(8)  { top: calc(60px + 140px); z-index: 8; }
+    .project-card:nth-child(9)  { top: calc(60px + 160px); z-index: 9; }
+    .project-card:nth-child(10) { top: calc(60px + 180px); z-index: 10; }
+    .project-card:nth-child(11) { top: calc(60px + 200px); z-index: 11; }
+    .project-card:nth-child(12) { top: calc(60px + 220px); z-index: 12; }
+
+    .card-inner {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 1 / 1 !important; /* Garde tes carrés */
+        border-radius: 30px;
+        overflow: hidden;
+        /* Ombre prononcée pour bien voir l'empilement */
+        box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+        background: #1a1a1a;
+    }
+}
+
+
+
+
+
+
+
+/* Neutralise les paddings du template qui empêchent l'uniformité */
+#propos-yasss, #competences-yasss {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#propos-yasss .inner, #competences-yasss .inner {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Ton espaceur qui devient le seul maître de l'écart */
+.spacer-custom {
+    height: 60px !important; 
+    display: block !important;
+    clear: both !important;
+}
+
+/* Aligne bien le titre de la 2ème section */
+#competences-yasss header.major {
+    margin-top: 0 !important;
+}
+
+
+
+
+/* Supprime les lignes entre les sections de la page d'accueil */
+section {
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+/* Supprime la ligne de séparation verticale dans la section contact */
+#contact .inner {
+    border-top: none !important;
+}
+
+#contact .split {
+    border-left: none !important; /* Enlève la ligne verticale entre le formulaire et le lieu */
+}
+
+#contact .split section {
+    border-top: none !important; /* Enlève les lignes entre Email, Téléphone et Lieu */
+}
+
+/* Supprime les lignes horizontales dans tes listes (Passions, Compétences) */
+ul.alt li {
+    border-top: none !important;
+}
+
+/* Supprime les balises hr (traits horizontaux simples) */
+hr {
+    display: none !important;
+}
+
+
+
+
+
+
+
+/* 1. Supprime le trait horizontal au-dessus de la section Contact */
+#contact {
+    border-top: none !important;
+}
+
+/* 2. Supprime la séparation entre le formulaire et la partie "Lieu/Email" */
+#contact .inner {
+    border-top: none !important;
+}
+
+#contact .inner > section:first-child {
+    border-right: none !important;
+}
+
+#contact .split {
+    border-left: none !important;
+}
+
+/* 3. Supprime les lignes entre Email, Téléphone et Lieu */
+#contact .split section {
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+/* 4. Supprime les bordures sur les champs du formulaire (Optionnel, si elles te gênent) */
+#contact input, 
+#contact textarea {
+    border: none !important;
+    box-shadow: none !important; /* Enlève aussi les ombres de bordure */
+}
+
+/* 5. Supprime le trait tout en bas (Footer) */
+#footer .inner {
+    border-top: none !important;
+}
+
+
+
+
+
+
+/* --- CORRECTIF IMAGE CV MOBILE --- */
+
+/* 1. On s'assure que le conteneur est bien en flex pour le PC */
+.cv-flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* 2. Affichage par défaut (PC/Tablette) */
+.cv-image-side {
+    display: block;
+}
+
+.cv-image-side img {
+    max-width: 450px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* 3. MEDIA QUERY : On cache tout le bloc image sur mobile */
+@media screen and (max-width: 736px) {
+    /* Cible le div qui contient l'image */
+    #cv-section-horizontal .cv-image-side {
+        display: none !important;
+    }
+
+    /* Centre le bouton */
+    #cv-section-horizontal .cv-flex-container {
+        flex-direction: column;
+        padding: 40px 0;
+    }
+}
+
+
+
+
+
+
+
+/* --- CSS PORTAIL PROJETS (INDEX) --- */
+
+#portal-section .compact-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px !important;
+    max-width: 1200px !important;
+    margin: 40px auto !important;
+    padding: 20px !important;
+}
+
+#portal-section .project-card {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+#portal-section .card-inner {
+    position: relative !important;
+    height: 400px !important; /* Ajuste la hauteur selon tes besoins */
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+}
+
+#portal-section .project-card:hover .card-inner {
+    transform: scale(1.02) !important;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5) !important;
+}
+
+#portal-section .card-bg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.6s ease !important;
+}
+
+#portal-section .project-card:hover .card-bg {
+    transform: scale(1.1) !important;
+}
+
+#portal-section .card-glass-panel {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 40% !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    display: flex !important;
+    align-items: center !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+#portal-section .card-title {
+    color: #ffffff !important;
+    font-size: 1.5rem !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+}
+
+#portal-section .card-title span {
+    font-size: 0.8rem !important;
+    font-weight: 400 !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    margin-top: 5px !important;
+}
+
+#portal-section .card-footer {
+    margin-top: 15px !important;
+    font-size: 0.9rem !important;
+    font-weight: bold !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media screen and (max-width: 736px) {
+    #portal-section .compact-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    #portal-section .card-inner {
+        height: 300px !important;
+    }
+}
+
+
+
+
+/* --- STYLE PAGE CV --- */
+
+#cv-section-horizontal .inner {
+    padding: 4em 0 !important;
+}
+
+.cv-flex-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 60px !important;
+}
+
+.cv-image-side {
+    flex: 0 0 450px !important;
+}
+
+.cv-image-side img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 8px !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5) !important;
+    transition: transform 0.3s ease !important;
+}
+
+.cv-image-side img:hover {
+    transform: scale(1.02) !important;
+}
+
+.cv-button-side {
+    flex: 1 !important;
+    max-width: 500px !important;
+}
+
+/* --- RESPONSIVE MOBILE (< 736px) --- */
+@media screen and (max-width: 736px) {
+    .cv-image-side {
+        display: none !important; /* Cache l'image sur tel */
+    }
+
+    .cv-flex-container {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+
+    .cv-button-side {
+        width: 100% !important;
+    }
+
+    .cv-button-side ul.actions {
+        justify-content: center !important;
+    }
+}
+
+
+
+
+
+/* --- COULEUR TEXTE NOIR POUR LES CARTES PROJETS --- */
+
+/* Cible les titres principaux dans les panels */
+#portal-section .card-title, 
+.project-card .card-title {
+    color: #000000 !important;
+}
+
+/* Cible le sous-titre (le span) à l'intérieur du titre */
+#portal-section .card-title span, 
+.project-card .card-title span {
+    color: #333333 !important; /* Un gris très foncé pour le contraste */
+    font-weight: 600 !important;
+}
+
+/* Cible le texte "Explorer" et la flèche dans le footer de la carte */
+#portal-section .card-footer span, 
+.project-card .card-footer span {
+    color: #000000 !important;
+}
+
+/* Optionnel : Rendre la bande blanche un peu plus opaque pour mieux lire le noir */
+#portal-section .card-glass-panel, 
+.project-card .card-glass-panel {
+    background: rgba(255, 255, 255, 0.4) !important; /* Augmentation de l'opacité à 40% */
+}
