@@ -6,16 +6,6 @@
 
 ---
 
-## Table des matières
-
-- [Introduction](#introduction)
-- [TP 2.2 — Le Switch](#tp-22--le-switch)
-- [TP 2.5 — Le Routeur](#tp-25--le-routeur)
-- [TP 2.7 — Sécurité & ACL](#tp-27--sécurité--acl)
-- [Conclusion](#conclusion)
-
----
-
 ## Introduction
 
 Ce projet simule un réseau d'entreprise complet dans **Cisco Packet Tracer**, en partant d'un simple switch jusqu'à une infrastructure segmentée par VLANs avec filtrage de sécurité.
