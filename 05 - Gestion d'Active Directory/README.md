@@ -31,8 +31,10 @@
 
 ### Ressources d'installation
 
-- 📖 Installer le rôle AD DS et configurer un domaine : [rdr-it.com — Windows Server 2025 AD DS](https://rdr-it.com/windows-serveur-2025-installer-le-role-adds-et-configurer-un-domaine-active-directory/)
-- 📖 Installer Windows 11 sur PC non compatible : [lecrabeinfo.net](https://lecrabeinfo.net/tutoriels/windows-11-25h2-comment-installer-la-mise-a-jour-sur-un-pc-non-compatible/)
+- Installer le rôle AD DS et configurer un domaine : [rdr-it.com — Windows Server 2025 AD DS](https://rdr-it.com/windows-serveur-2025-installer-le-role-adds-et-configurer-un-domaine-active-directory/)
+- Installer Windows 11 sur PC non-compatible : [lecrabeinfo.net](https://lecrabeinfo.net/tutoriels/windows-11-25h2-comment-installer-la-mise-a-jour-sur-un-pc-non-compatible/)
+- Télecharger Windows Server 2025 : [microsoft.com](https://www.microsoft.com/fr-fr/evalcenter/evaluate-windows-server-2025)
+- Télécharger Windows 11 : [microsoft.com](https://www.microsoft.com/fr-fr/software-download/windows11)
 
 ---
 
