@@ -1,7 +1,6 @@
-# Machine de Rube Goldberg — PC Windows 7 Revisité 🏆
+# Workshop National EPSI -- B1 2025
 
 <img width="945" height="2048" alt="380d1848-8b6e-403f-bcc6-20fd1112f3bd" src="https://github.com/user-attachments/assets/79e7e325-edcc-4f7f-8ba8-be2ec75f3ff8" />
-<img width="1200" height="1600" alt="f1e9ce65-d7f9-4070-b4a7-019806644018" src="https://github.com/user-attachments/assets/3e0c2c7e-e0d2-4799-b429-ff7bd0a183b3" />
 
 > Machine de Rube Goldberg conçue dans une caisse de 40×20×40 cm reprenant l'esthétique d'une **tour PC Windows 7 modernisée** — pilotée par **Arduino**, avec capteurs LDR, relais, servomoteur, écran LCD et ruban LED. Réalisée en **4 jours** au workshop EPSI myDiL Lille.
 
