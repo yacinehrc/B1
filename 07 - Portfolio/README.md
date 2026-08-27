@@ -46,7 +46,7 @@ Seize projets organisés en 2 pages distinctes pour une meilleure compréhension
 
 ### Mon CV
 
-Une section est destinée à **mon CV** qui est accompagné d'un font awesome sur un bouton pour télécharger mon CV en format PDF.
+Une section est destinée à **mon CV** qui est accompagné d'un font awesome sur un bouton pour consulter mon CV en format PDF.
 
 <img width="1918" height="892" alt="Capture d&#39;écran 2026-06-27 175103" src="https://github.com/user-attachments/assets/1f92882e-3865-43b4-8b6b-417ae8d2fa0a" />
 
