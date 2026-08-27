@@ -33,7 +33,7 @@ J'ai notamment pris conscience que la sécurité d'un poste ne repose pas sur un
 
 ### A. Création de la machine virtuelle
 
-Configuration d'une VM VMware avec ajout d'un module **TPM (Trusted Platform Module)**, prérequis indispensable pour l'activation de BitLocker et l'installation de Windows 11.
+Configuration d'une VM avec ajout d'un module **TPM (Trusted Platform Module)**, prérequis indispensable pour l'activation de BitLocker et l'installation de Windows 11.
 
 ---
 
