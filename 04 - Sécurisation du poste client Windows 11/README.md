@@ -6,7 +6,7 @@
 
 ## Contexte
 
-Dans le cadre d'un renouvellement de parc informatique pour la société fictive **G5K France**, j'ai été missionné en tant que technicien informatique pour réceptionner, configurer et sécuriser les nouveaux postes clients (Lenovo ThinkPad E15 Gen 4).
+Dans le cadre d'un renouvellement de parc informatique pour la société fictive **G5K France**, j'ai été missionné en tant que technicien informatique pour réceptionner, configurer et sécuriser les nouveaux postes clients.
 
 L'ensemble du déploiement a été réalisé dans une machine virtuelle **VMware Workstation** (2 vCPU, 4 Go RAM, 100 Go disque, réseau NAT) sous **Windows 11 Professionnel N**, afin de produire un master reproductible avant déploiement en production.
 
