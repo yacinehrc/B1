@@ -61,4 +61,4 @@ Ce projet a permis de découvrir les bases de la **création de monde virtuel** 
 
 ---
 
-*Réalisé par [Yacine Harrache](https://github.com/yacinehrc) — BTS SIO SLAM | EPSI Lille*
+*Réalisé par [Yacine Harrache](https://github.com/yacinehrc) et [Louis Agthe](https://github.com/LGame127)— BTS SIO SLAM | EPSI Lille*
