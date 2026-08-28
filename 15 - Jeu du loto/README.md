@@ -92,4 +92,4 @@ Ce projet a permis de mettre en pratique les bases de la **programmation Python*
 
 ---
 
-*Réalisé par [Yacine Harrache](https://github.com/yacinehrc) — BTS SIO SLAM | EPSI Lille*
+*Réalisé par [Yacine Harrache](https://github.com/yacinehrc) et [Louis Agthe](https://github.com/LGame127)— BTS SIO SLAM | EPSI Lille*
